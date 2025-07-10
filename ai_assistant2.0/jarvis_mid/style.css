@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; */
+    background: #000000;
+}
+
+.chat_container {
+    display: flex;
+    /* gap: 20px; */
+    /* padding: 20px; */
+    /* margin-bottom: 150px; */
+}
+
+.chat_box {
+    background: black;
+    /* background: rgb(255, 255, 255); */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px black;
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat_box h3 {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    /* background: #007bff; */
+    color: rgb(215, 215, 215);
+    border-radius: 10px 10px 0 0;
+}
+
+.chat_messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: black;
+}
+
+.message {
+    margin-bottom: 15px;
+    max-width: 80%;
+}
+
+.user_message {
+    margin-left: auto;
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px;
+}
+
+.ai_message {
+    background: #e9ecef;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 15px 15px 15px 0;
+}
+
+.input_container {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #000000;
+    /* <-- Now the line will be black */
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    /* border: 1px solid #000000; */
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.send {
+    background: #007bff;
+    color: white;
+}
+
+.mic {
+    background: #28a745;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* AI Animation Styles */
+.ai_animation {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.last_layer,
+.last_3rd_layer,
+.last_2nd_layer,
+.top_layer {
+    position: absolute;
+    border-radius: 50%;
+    /* background: #007bff; */
+    /* opacity: 0.1; */
+}
+
+.last_layer {
+    width: 320px;
+    height: 320px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    position: absolute;
+    border-radius: 50%;
+    border: 40px solid rgb(0, 0, 0);
+    border-top: 40px solid rgb(0, 102, 255);
+    border-bottom: 40px solid rgb(0, 102, 255);
+    /* box-shadow: 0 10px 10px 0 rgb(149, 192, 255);     */
+    margin-top: 120px;
+    margin-left: 350px;
+    animation: rotate1 0.1s linear 0s infinite;
+
+}
+
+@keyframes rotate1 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.last_3rd_layer {
+    width: 237px;
+    height: 237px;
+    /* top: 20px;
+    left: 20px; */
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    border: 30px solid rgb(0, 0, 0);
+    border-left: 30px solid rgb(0, 102, 255);
+    border-right: 30px solid rgb(0, 102, 255);
+    box-shadow: 0 10px 50px 0 rgb(149, 192, 255);
+    margin-left: 391px;
+    margin-top: 161px;
+    animation: rotate2 0.1s linear infinite;
+}
+
+@keyframes rotate2 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.last_2nd_layer {
+    width: 180px;
+    height: 180px;
+    /* top: 40px;
+    left: 40px; */
+    position: absolute;
+    z-index: -1;
+    margin-top: 191px;
+    margin-left: 420px;
+    border-radius: 50%;
+    border: 30px solid black;
+    border-top: 30px solid rgb(0, 102, 255);
+    border-bottom: 30px solid rgb(0, 102, 255);
+    box-shadow: 0 10px 50px 0 rgb(149, 192, 255);
+    animation: rotate3 0.1s linear infinite;
+}
+
+@keyframes rotate3 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.top_layer {
+    width: 120px;
+    height: 120px;
+    /* top: 60px;
+    left: 60px; */
+    position: absolute;
+    z-index: -1;
+    margin-top: 221px;
+    margin-left: 450px;
+    /* background-color: red; */
+    border-radius: 50%;
+    border: 30px solid black;
+    border-left: 30px solid rgb(0, 102, 255);
+    border-right: 30px solid rgb(0, 102, 255);
+    box-shadow: 0 10px 50px 0 rgb(149, 192, 255);
+    background-color: rgb(0, 0, 0);
+    animation: rotate4 0.1s linear infinite;
+}
+
+@keyframes rotate4 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.wave {
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    margin-top: 250px;
+    margin-left: 510px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.wave span {
+    width: 4px;
+    height: 20px;
+    background: #007bff;
+    margin: 0 2px;
+    border-radius: 2px;
+    animation: wave 1s infinite ease-in-out;
+}
+
+.wave span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.wave span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.wave span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.wave span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        height: 20px;
+    }
+
+    50% {
+        height: 40px;
+    }
+}
